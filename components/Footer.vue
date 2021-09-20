@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer pt-5 mt-32">
+  <footer class="footer pt-5 mt-10">
     <div class="container mx-auto flex flex-col md:flex-row p-3 px-5 md:px-3">
       <!-- Taskin logo and name -->
       <div class="flex flex-col items-center md:w-1/4 md:px-3">

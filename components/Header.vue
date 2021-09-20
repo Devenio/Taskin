@@ -123,12 +123,12 @@
       class="fixed top-0 -right-full transition-all duration-300 z-50 h-screen w-3/4 bg-main pt-5"
       ref="menu"
     >
-      <div class="flex items-center w-full justify-center relative">
+      <div class="flex items-center w-full justify-center">
         <img src="/img/taskin-logo.png" alt="logo" class="w-[70px]" />
         <img src="/img/taskin-name.png" alt="logo" class="w-[100px] mr-3" />
         <fa
           :icon="['fas', 'times']"
-          class="absolute top-1 left-6 text-purple-th text-3xl cursor-pointer"
+          class="absolute top-4 left-4 text-purple-th text-xl cursor-pointer"
           @click="close = true"
         />
       </div>
