@@ -1,8 +1,38 @@
 @font-face {
-    font-family: iransans;
-    src: url("./font/IRANSansWeb.ttf");
+  font-family: iransans;
+  src: url("./font/IRANSansWeb.ttf");
 }
 
 * {
-    font-family: iransans;
+  font-family: iransans;
+  scroll-behavior: smooth;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-purple-th rounded-sm cursor-pointer transition duration-200;
+}
+
+/* Handle on hover */
+/* ::-webkit-scrollbar-thumb:hover {
+    @apply bg-pink-th rounded-xl cursor-pointer;
+} */
+
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.5s;
+}
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+  transform: translate(-30px);
 }

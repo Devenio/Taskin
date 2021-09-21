@@ -217,7 +217,7 @@ export default {
           items: [
             {
               title: "واحد برنامه نویسی و پشتیبانی",
-              path: "/"
+              path: "/sections"
             },
             {
               title: "واحد فروش و گسترش نرم افزار تسکین",

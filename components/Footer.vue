@@ -20,10 +20,10 @@
           درباره تسکین
         </h3>
         <p class="md:mt-7">
-          لورم اپیسوم متنی بی معنی در صنعت گرافیک لورم اپیسوم متنی بی معنی در
-          صنعت گرافیک لورم اپیسوم متنی بی معنی در صنعت گرافیک لورم اپیسوم متنی
-          بی معنی در صنعت گرافیک لورم اپیسوم متنی بی معنی در صنعت گرافیک لورم
-          اپیسوم متنی بی معنی در صنعت گرافیک
+          لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
+          از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و
+          سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای
+          متنوع با هدف بهبود ابزارهای کاربردی می باشد
         </p>
       </div>
       <!-- Pages links -->
@@ -155,14 +155,23 @@
           </a>
         </div>
         <div class="flex items-center justify-end mt-5">
-          <img class="ml-2" src="https://img.icons8.com/small/25/2BB6AA/twitter.png"/>
-          <img class="ml-2" src="https://img.icons8.com/small/25/2BB6AA/facebook-new.png"/>
-          <img class="ml-2" src="https://img.icons8.com/small/25/2BB6AA/instagram-new.png"/>
+          <img
+            class="ml-2"
+            src="https://img.icons8.com/small/25/2BB6AA/twitter.png"
+          />
+          <img
+            class="ml-2"
+            src="https://img.icons8.com/small/25/2BB6AA/facebook-new.png"
+          />
+          <img
+            class="ml-2"
+            src="https://img.icons8.com/small/25/2BB6AA/instagram-new.png"
+          />
         </div>
       </div>
     </div>
     <div class="w-full text-center px-5 bg-green-th py-3 text-white mt-3">
-        کلیه حقوق محتوای این سایت متعلق به تسکین میباشد
+      کلیه حقوق محتوای این سایت متعلق به تسکین میباشد
     </div>
   </footer>
 </template>
