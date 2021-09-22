@@ -63,7 +63,7 @@
     </header>
     <!-- Navbar -->
     <div
-      class="w-full flex items-center lg:justify-center nav relative"
+      class="w-full flex items-center lg:justify-center nav relative shadow-lg lg:shadow-none"
       @mouseleave="show = null"
     >
       <nav
@@ -183,7 +183,7 @@ export default {
           items: [
             {
               title: "معرفی شرکت",
-              path: "/"
+              path: "/taskin"
             },
             {
               title: "رئیس هیئت مدیره",
@@ -267,7 +267,7 @@ export default {
             },
             {
               title: "خدمات قابل ارائه به پزشکان",
-              path: "/"
+              path: "/services"
             },
             {
               title: "خدمات قابل ارائه به درمانگاه ها",
@@ -289,15 +289,15 @@ export default {
           items: [
             {
               title: "آدرس و شماره تماس",
-              path: "/"
+              path: "/contact"
             },
             {
               title: "تسکین در فضای مجازی",
-              path: "/"
+              path: "/contact"
             },
             {
               title: "درخواست همکاری با تسکین",
-              path: "/"
+              path: "/contact"
             }
           ]
         }
