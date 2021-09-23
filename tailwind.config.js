@@ -13,6 +13,9 @@ module.exports = {
         "green2-th": "#71BB70",
         "pink-th": "#CD80B4",
         "yellow-th": "#FED061"
+      },
+      boxShadow: {
+        blue: '0 10px 15px -3px #3CA4DC50, 0 4px 6px -2px #3CA4DC20'
       }
     },
   },

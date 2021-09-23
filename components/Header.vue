@@ -7,7 +7,7 @@
         class="container mx-auto flex flex-col md:flex-row py-3 md:py-0 flex-wrap justify-between items-center px-3"
       >
         <!-- Taskin logo and name -->
-        <div class="flex flex-row items-center">
+        <div class="flex flex-row items-center cursor-pointer" @click="$router.push('/')">
           <img
             src="/img/taskin-logo.png"
             alt="logo"
@@ -86,6 +86,7 @@
         >
           <div
             class="bg-white shadow-lg rounded-xl min-w-[400px] max-w-[1200px] flex justify-betwen overflow-hidden"
+            @mouseleave="show = null"
           >
             <div class="p-5 ml-32 flex flex-col flex-wrap max-h-[216px] min-w-[50%] relative z-50">
               <div
@@ -187,27 +188,27 @@ export default {
             },
             {
               title: "رئیس هیئت مدیره",
-              path: "/"
+              path: "/user"
             },
             {
               title: "مدیر عامل",
-              path: "/"
+              path: "/taskin"
             },
             {
               title: "افتخارات و تقدیرنامه ها",
-              path: "/"
+              path: "/honors"
             },
             {
               title: "تسکین با تسکین",
-              path: "/"
+              path: "/taskin"
             },
             {
               title: "آرشیو اخبار",
-              path: "/"
+              path: "/taskin"
             },
             {
               title: "تسکین در کنار شما",
-              path: "/"
+              path: "/coworks"
             }
           ]
         },
@@ -221,39 +222,39 @@ export default {
             },
             {
               title: "واحد فروش و گسترش نرم افزار تسکین",
-              path: "/"
+              path: "/sections"
             },
             {
               title: "واحد تولید محتوا و فضای مجازی",
-              path: "/"
+              path: "/sections"
             },
             {
               title: "واحد طراحی و گرافیک",
-              path: "/"
+              path: "/sections"
             },
             {
               title: "واحد چاپ و خدمات مرتبط با کاغذ",
-              path: "/"
+              path: "/sections"
             },
             {
               title: "واحد مالی",
-              path: "/"
+              path: "/sections"
             },
             {
               title: "واحد اداری",
-              path: "/"
+              path: "/sections"
             },
             {
               title: "واحد سایت",
-              path: "/"
+              path: "/sections"
             },
             {
               title: "واحد پشتیبانی بیماران پروفسور جحواد کجوری",
-              path: "/"
+              path: "/sections"
             },
             {
               title: "واحد خدمات غیرحضوری آزمایشگاه نیلو",
-              path: "/"
+              path: "/sections"
             }
           ]
         },
@@ -263,7 +264,7 @@ export default {
           items: [
             {
               title: "خدمات قابل ارائه به بیماران",
-              path: "/"
+              path: "/services"
             },
             {
               title: "خدمات قابل ارائه به پزشکان",
@@ -271,15 +272,15 @@ export default {
             },
             {
               title: "خدمات قابل ارائه به درمانگاه ها",
-              path: "/"
+              path: "/services"
             },
             {
               title: "خدمات قابل ارائه به داروخانه ها",
-              path: "/"
+              path: "/services"
             },
             {
               title: "خدمات قابل ارائه به آزمایشگاه ها",
-              path: "/"
+              path: "/services"
             }
           ]
         },

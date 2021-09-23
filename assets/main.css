@@ -19,7 +19,7 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  @apply bg-purple-th rounded-sm cursor-pointer transition duration-200;
+  @apply bg-purple-th rounded-none cursor-pointer transition duration-200;
 }
 
 /* Handle on hover */

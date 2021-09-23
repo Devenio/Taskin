@@ -38,7 +38,7 @@
       </div>
       <!-- Texts and body -->
       <div class="px-5 text-center md:text-right md:w-3/5">
-        <p class="opacity-75 max-h-[200px] overflow-y-hidden">
+        <p class="opacity-75 max-h-[200px] overflow-y-auto">
           {{ slides[index].text }}
         </p>
         <div class="mt-5">
@@ -94,5 +94,11 @@ export default {
 }
 .deactive-dot {
   @apply border-gray-300 bg-white;
+}
+p::-webkit-scrollbar-thumb {
+  @apply bg-purple-th rounded-xl cursor-pointer transition duration-200;
+}
+p::-webkit-scrollbar {
+  width: 10px;
 }
 </style>
