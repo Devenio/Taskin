@@ -12,7 +12,7 @@
             class="border-4 border-green-th rounded-xl transform rotate-12 absolute inset-3 inset-x-4 z-0"
           ></div>
           <img
-            :src="slides[index].image"
+            :src="slides[index].imageOne"
             class="object-cover w-full h-full relative z-10 rounded-xl"
           />
         </div>

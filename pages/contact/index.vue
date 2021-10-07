@@ -2,8 +2,12 @@
   <div class="w-full">
     <div class="container mx-auto px-3 md:px-0">
       <img src="/img/contact-img.png" class="mx-auto max-w-[300px]" />
-      <div class="w-full mt-5 flex flex-col md:flex-row md:max-w-[1200px] mx-auto items-center">
-        <div class="w-full rounded-xl bg-purple-th text-white p-5 relative z-40 shadow-xl">
+      <div
+        class="w-full mt-5 flex flex-col md:flex-row md:max-w-[1200px] mx-auto items-center"
+      >
+        <div
+          class="w-full rounded-xl bg-purple-th text-white p-5 relative z-40 shadow-xl"
+        >
           <div class="flex items-center">
             <img src="/img/taskin-logo.png" class="ml-3 w-[50px]" />
             ارتباط با ما
@@ -32,11 +36,14 @@
               </svg>
             </div>
             <p>
-              شیراز - بلوار زند - جنب حلال احمر - ساختمان مرکزی دانشگاه علوم
-              پزشکی شیراز -طبقه 8
+              {{ info.address }}
             </p>
           </div>
-          <div class="flex items-center mt-3">
+          <div
+            class="flex items-center mt-3"
+            v-for="(phone, index) in info.phones"
+            :key="index"
+          >
             <div class="ml-3">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -53,50 +60,8 @@
                 />
               </svg>
             </div>
-            <a href="tel:07132335385">
-              07132335385
-            </a>
-          </div>
-          <div class="flex items-center mt-3">
-            <div class="ml-3">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
-                />
-              </svg>
-            </div>
-            <a href="tel:07132122717">
-              07132122717
-            </a>
-          </div>
-          <div class="flex items-center mt-3">
-            <div class="ml-3">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                />
-              </svg>
-            </div>
-            <a href="tel:07132352530">
-              07132352530
+            <a :href="`tel:${phone}`">
+              {{ phone }}
             </a>
           </div>
           <div class="flex items-center mt-3">
@@ -116,40 +81,51 @@
                 />
               </svg>
             </div>
-            <a href="mailto:herasat@sums.ac.ir">
-              herasat@sums.ac.ir
+            <a :href="`mailto:${info.email}`">
+              {{ info.email }}
             </a>
           </div>
           <div class="flex items-center justify-end mt-5">
-            <img
-              class="ml-2"
-              src="https://img.icons8.com/small/25/ffffff/twitter.png"
-            />
-            <img
-              class="ml-2"
-              src="https://img.icons8.com/small/25/ffffff/facebook-new.png"
-            />
-            <img
-              class="ml-2"
-              src="https://img.icons8.com/small/25/ffffff/instagram-new.png"
-            />
+            <a
+              :href="social.link"
+              v-for="(social, i) in info.socialMedias"
+              :key="i"
+            >
+              <img class="ml-2 max-w-[70px]" :src="social.icon" />
+            </a>
           </div>
         </div>
-        <div class="w-full rounded-xl p-5 shadow-xl mt-5 md:pr-60 md:-mr-44 border-2 border-gray-200">
+        <div
+          class="w-full rounded-xl p-5 shadow-xl mt-5 md:pr-60 md:-mr-44 border-2 border-gray-200"
+        >
           <h1 class="font-bold text-center">تماس با ما</h1>
           <form class="w-full mt-3">
             <div class="flex flex-col items-start">
               <label>
-                نام و نام خانوادگی :
+                نام :
               </label>
               <input
                 type="text"
                 class="mt-2 rounded-xl border-2 border-gray-200 w-full p-3 !outline-none"
-                v-model="data.name"
-                @input="check(data.name, 1)"
+                v-model="data.firstName"
+                @input="check(data.firstName, 1)"
               />
               <p class="text-red-600 text-sm">
                 {{ err_1 }}
+              </p>
+            </div>
+            <div class="flex flex-col items-start mt-3">
+              <label>
+                نام خانوادگی :
+              </label>
+              <input
+                type="text"
+                class="mt-2 rounded-xl border-2 border-gray-200 w-full p-3 !outline-none"
+                v-model="data.lastName"
+                @input="check(data.lastName, 3)"
+              />
+              <p class="text-red-600 text-sm">
+                {{ err_3 }}
               </p>
             </div>
             <div class="flex flex-col items-start mt-3">
@@ -168,20 +144,6 @@
             </div>
             <div class="flex flex-col items-start mt-3">
               <label>
-                موضوع :
-              </label>
-              <input
-                type="text"
-                class="mt-2 rounded-xl border-2 border-gray-200 w-full p-3 !outline-none"
-                v-model="data.title"
-                @input="check(data.title, 3)"
-              />
-              <p class="text-red-600 text-sm">
-                {{ err_3 }}
-              </p>
-            </div>
-            <div class="flex flex-col items-start mt-3">
-              <label>
                 توضیحات :
               </label>
               <textarea
@@ -196,7 +158,7 @@
             </div>
             <button
               type="submit"
-              @click.prevent=""
+              @click.prevent="sendForm()"
               class="rounded-xl border-2  text-white w-full p-3 mt-3 !outline-none"
               :class="valid ? 'bg-blue-th' : 'bg-gray-400'"
             >
@@ -218,13 +180,15 @@
 </template>
 
 <script>
+import { Contact } from "@/reqs/index";
+
 export default {
   data() {
     return {
       data: {
-        name: "",
+        firstName: "",
+        lastName: "",
         email: "",
-        title: "",
         text: ""
       },
       err_1: "",
@@ -270,13 +234,32 @@ export default {
         !this.err_2 &&
         !this.err_3 &&
         !this.err_4 &&
-        this.data.name &&
+        this.data.firstName &&
         this.data.email &&
-        this.data.title &&
+        this.data.lastName &&
         this.data.text;
       this.valid = !!valid;
     },
-    send() {}
+    async sendForm() {
+      try {
+        if (this.valid) {
+          const res = await Contact.sendForm(this.data);
+          console.log(res);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  },
+  async asyncData() {
+    try {
+      const res = await Contact.contactUs();
+      return {
+        info: res.data[0]
+      };
+    } catch (error) {
+      console.log(error);
+    }
   }
 };
 </script>

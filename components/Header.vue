@@ -7,7 +7,10 @@
         class="container mx-auto flex flex-col md:flex-row py-3 md:py-0 flex-wrap justify-between items-center px-3"
       >
         <!-- Taskin logo and name -->
-        <div class="flex flex-row items-center cursor-pointer" @click="$router.push('/')">
+        <div
+          class="flex flex-row items-center cursor-pointer"
+          @click="$router.push('/')"
+        >
           <img
             src="/img/taskin-logo.png"
             alt="logo"
@@ -88,7 +91,9 @@
             class="bg-white shadow-lg rounded-xl min-w-[400px] max-w-[1200px] flex justify-betwen overflow-hidden"
             @mouseleave="show = null"
           >
-            <div class="p-5 ml-32 flex flex-col flex-wrap max-h-[216px] min-w-[50%] relative z-50">
+            <div
+              class="p-5 ml-32 flex flex-col flex-wrap max-h-[216px] min-w-[50%] relative z-50"
+            >
               <div
                 class="flex items-center my-2 mx-1"
                 v-for="(item, index) in childItems"
@@ -99,7 +104,11 @@
               </div>
             </div>
             <div class="relative">
-              <img src="/img/nav-img.png" alt="nav" class="h-full object-cover bg-white" />
+              <img
+                src="/img/nav-img.png"
+                alt="nav"
+                class="h-full object-cover bg-white"
+              />
               <div
                 class="absolute inset-0 bg-gradient-to-r from-transparent to-white"
               ></div>
@@ -171,6 +180,8 @@
 </template>
 
 <script>
+import { Section, Service } from "@/reqs/index";
+
 export default {
   data() {
     return {
@@ -215,74 +226,12 @@ export default {
         {
           title: "واحد ها و مسئولین واحدها",
           path: "/",
-          items: [
-            {
-              title: "واحد برنامه نویسی و پشتیبانی",
-              path: "/sections"
-            },
-            {
-              title: "واحد فروش و گسترش نرم افزار تسکین",
-              path: "/sections"
-            },
-            {
-              title: "واحد تولید محتوا و فضای مجازی",
-              path: "/sections"
-            },
-            {
-              title: "واحد طراحی و گرافیک",
-              path: "/sections"
-            },
-            {
-              title: "واحد چاپ و خدمات مرتبط با کاغذ",
-              path: "/sections"
-            },
-            {
-              title: "واحد مالی",
-              path: "/sections"
-            },
-            {
-              title: "واحد اداری",
-              path: "/sections"
-            },
-            {
-              title: "واحد سایت",
-              path: "/sections"
-            },
-            {
-              title: "واحد پشتیبانی بیماران پروفسور جحواد کجوری",
-              path: "/sections"
-            },
-            {
-              title: "واحد خدمات غیرحضوری آزمایشگاه نیلو",
-              path: "/sections"
-            }
-          ]
+          items: []
         },
         {
           title: "خدمات و راهکارها",
           path: "/",
-          items: [
-            {
-              title: "خدمات قابل ارائه به بیماران",
-              path: "/services"
-            },
-            {
-              title: "خدمات قابل ارائه به پزشکان",
-              path: "/services"
-            },
-            {
-              title: "خدمات قابل ارائه به درمانگاه ها",
-              path: "/services"
-            },
-            {
-              title: "خدمات قابل ارائه به داروخانه ها",
-              path: "/services"
-            },
-            {
-              title: "خدمات قابل ارائه به آزمایشگاه ها",
-              path: "/services"
-            }
-          ]
+          items: []
         },
         {
           title: "ارتباط با ما",
@@ -334,6 +283,35 @@ export default {
         ? (this.childItems = this.navItems[val].items)
         : (this.childItems = []);
     }
+  },
+  mounted() {
+    Section.sectionList()
+      .then(res => {
+        const sections = res.data;
+        sections.forEach((item, index) => {
+          this.navItems[1].items[index] = {
+            title: item.name,
+            path: `/sections?id=${item.id}`
+          };
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+
+    Service.serviceList()
+      .then(res => {
+        const services = res.data;
+        services.forEach((item, index) => {
+          this.navItems[2].items[index] = {
+            title: item.title,
+            path: `/services?idx=${index}`
+          };
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 };
 </script>

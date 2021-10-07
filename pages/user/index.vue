@@ -6,45 +6,33 @@
         <h1
           class="text-lg md:text-xl font-bold flex items-center text-right text-purple-th"
         >
-          علی توکلی
+          {{ data.name }}
         </h1>
       </div>
       <div
         class="rounded-xl py-3 px-5 mt-5 bg-gradient-to-r from-blue-th to-green-th text-white mx-3 md:mx-0"
       >
-        <h1 class="md:text-xl">رئیس هیئت مدیره</h1>
+        <h1 class="md:text-xl">{{ data.title }}</h1>
       </div>
 
       <div
         class="w-full mt-5 flex flex-col md:flex-row-reverse text-center md:text-right items-center md:items-start justify-between"
       >
         <img
-          src="/img/user-img.png"
-          class="object-cover max-w-[500px] max-h-[400px]"
+          :src="data.image"
+          class="object-cover w-[300px] md:max-w-[500px] md:w-auto md:max-h-[400px]"
         />
         <div class="max-w-[700px]">
           <h1 class="font-bold">
             سوابق علمی و اجرایی :
           </h1>
           <p class="opacity-75 mt-5">
-            طرح‌نما یا لورم ایپسوم به نوشتاری آزمایشی و بی‌معنی در صنعت چاپ،
-            صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این نوشتار
-            به‌عنوان عنصری از ترکیب‌بندی برای پُر کردن صفحه و ارائهٔ اولیهٔ شکل
-            ظاهری و کلیِ طرح سفارش‌گرفته‌شده‌استفاده می‌کند، تا ازنظر گرافیکی
-            نشانگر چگونگی نوع و اندازهٔ قلم و ظاهرِ متن باشد. معمولاً طراحان
-            گرافیک برای صفحه‌آرایی، نخست از متن‌های آزمایشی و بی‌معنی استفاده
-            می‌کنند تا صرفاً به مشتری یا صاحب‌کار خود نشان دهند که صفحهٔ طراحی
-            یا صفحه‌بندی شده، بعد از اینکه متن در آن قرار گیرد، چگونه به نظر
-            می‌رسد و قلم‌ها و اندازه‌بندی‌ها چگونه در نظر گرفته شده‌است. از
-            آنجایی که طراحان عموماً نویسندهٔ متن نیستند و وظیفهٔ رعایت حق تکثیر
-            متون را ندارند و در همان حال، کار آن‌ها به‌نوعی وابسته به متن است،
-            آن‌ها با استفاده از محتویات ساختگی، صفحهٔ گرافیکی خود را صفحه‌آرایی
-            می‌کنند تا مرحلهٔ طراحی و صفحه‌بندی را به پایان برند.
+            {{ data.text }}
           </p>
           <button
             class="border-2 border-green-th text-green-th rounded-xl px-5 py-3 mt-5 transition duration:200 hover:bg-green-th hover:text-white"
           >
-            مشاهده رزومه علی توکلی
+            مشاهده رزومه {{ data.name }}
           </button>
           <div class="flex items-center mt-5">
             <div class="text-green-th ml-3">
@@ -95,7 +83,20 @@
 </template>
 
 <script>
-export default {};
+import { Landing } from "@/reqs/index";
+
+export default {
+  async asyncData() {
+    try {
+      const res = await Landing.chairmen();
+      return {
+        data: res.data[0]
+      };
+    } catch (error) {
+      console.log(error);
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped></style>

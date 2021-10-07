@@ -26,21 +26,18 @@
     <div class="container mx-auto mt-10">
       <div
         class="w-full p-5 md:px-10 flex flex-col items-center text-center md:text-right md:flex-row-reverse justify-between shadow-xl border-2 border-gray-100 rounded-xl"
+        v-for="(honor, index) in honors"
+        :key="index"
       >
-        <img src="/img/license.png" class="h-[300px]" />
+        <img :src="honor.image" class="h-[300px]" />
         <div class="md:min-h-[300px] max-w-[700px] flex flex-col justify-between mt-5 md:mt-0 pl-5">
           <h1 class="font-bold text-lg md:text-xl">
-            مجوز فعالیت صنفی شرکت تسکین
+            {{ honor.title }}
           </h1>
           <p class="mt-3 md:mt-0">
-            لورم ایپسوم به نوشتاری آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و
-            طراحی گرافیک گفته می‌شود.
-            لورم ایپسوم به نوشتاری آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و
-            طراحی گرافیک گفته می‌شود.
-            لورم ایپسوم به نوشتاری آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و
-            طراحی گرافیک گفته می‌شود.
+            {{ honor.text }}
           </p>
-          <a href="#" class="font-bold text-lg text-blue-th mt-3 md:mt-0">
+          <a :href="honor.image" target="_blank" download class="font-bold text-lg text-blue-th mt-3 md:mt-0">
             مشاهده تصویر مجوز
           </a>
         </div>
@@ -50,6 +47,8 @@
 </template>
 
 <script>
+import { Landing } from "@/reqs/index";
+
 export default {
   data() {
     return {
@@ -69,6 +68,16 @@ export default {
         }
       ]
     };
+  },
+  async asyncData() {
+    try {
+      const res = await Landing.honor();
+      return {
+        honors: res.data
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 };
 </script>

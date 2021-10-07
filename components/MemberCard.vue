@@ -6,6 +6,7 @@
         ? ['border-purple-th', 'scale-105']
         : ['border-transparent', 'scale-100']
     "
+    @click="check()"
   >
     <div
       class="w-[90px] h-[90px] rounded-full overflow-hidden border-2 border-gray-400"
@@ -13,14 +14,22 @@
       <img src="/img/test-img3.png" class="w-full h-full object-cover" />
     </div>
     <h1 class="text-lg font-bold mt-3 text-purple-th">
-      علی توکلی
+      {{ persenel.name }}
     </h1>
-    <p class="text-black">طراح</p>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    persenel: Object
+  },
+  methods: {
+    check() {
+      this.$emit.clicked = this.persenel;
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped></style>
